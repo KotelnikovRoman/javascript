@@ -1,0 +1,60 @@
+img {
+    width: 300px;
+}
+
+.box {
+    display: flex;
+    position: relative;
+}
+
+#img1 {
+    filter: blur(1px);
+}
+
+#img2 {
+    filter: contrast(200%);
+}
+
+#img3 {
+    filter: brightness(.5);
+}
+
+#img4 {
+    filter: drop-shadow(10px 5px 20px blue);
+}
+
+#img5 {
+    filter: grayscale(100%);
+}
+
+#img6 {
+    filter: hue-rotate(90deg);
+}
+
+#img7 {
+    filter: invert(75%);
+}
+
+#img8 {
+    filter: opacity(25%);
+}
+
+#img9 {
+    filter: saturate(30%);
+}
+
+#img10 {
+    filter: sepia(60%);
+}
+
+#img11 {
+    filter: contrast(175%) brightness(5%);
+}
+
+#trans {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    visibility: hidden;
+    filter: revealtrans;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #myTab {
+            width: 150px;
+            border: 10px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <table id="myTab" border="1">
+        <tr>
+            <td>Мигающая рамка</td>
+        </tr>
+    </table>
+    <script>
+        myTab = document.getElementById("myTab");
+        function flash() {
+            //вызывает ошибку
+            //if (!document.all) return null; 
+            if(myTab.style.borderColor == 'yellow') {
+                myTab.style.borderColor = 'red';
+            }
+            else {
+                myTab.style.borderColor = 'yellow';
+            }
+        }
+        setInterval("flash()", 500);
+    </script>
+</body>
+</html>

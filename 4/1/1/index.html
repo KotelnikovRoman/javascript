@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Визуальные эфекты</h1>
+    <div class="box">
+        <h2>Смена изображений</h2>
+        <!--смена изображений при клике-->
+        <!--Не верно, сценарий прописан вне функции-->
+        <h3>смена изображения 1 раз</h3>
+        <img src="img/johnny5_s.jpg" onclick="document.all.myImg1.src='img/johnny5_b.jpg'" id="myImg1" alt="">
+
+        <!--Верно-->
+        <h3>смена изображений при клике</h3>
+        <img src="img/johnny5_s.jpg" id="myImg2" onclick="changingImg()" alt="">
+        <h3>автомотическая смена изображений</h3>
+        <img src="img/johnny5_s.jpg" id="myImg3" alt=""  class="img_s">
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

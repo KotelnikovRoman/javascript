@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p><a href="javascript:x = 5%2;document.write(x);">5%2</a></p>
+	<p><a href="javascript:x=3;(x < 5)? 'menshe':'bolshe';">x</a></p>
+	<p><a href="javascript:d=new Date(); typeof d;">typeof d</a></p>
+	<p><a href="javascript:for(i=0,j=1,k=0,fib=1;i<5;i++,fib=j+k,k=j, j=fib)alert(fib);">for</a></p>
+	<p><a href="javascript:s='';for(i in navigator) s+=i+':'+navigator[i]+'\n'; alert(s);">navigator</a></p>
+	<script>
+		document.write('<h2>Числа Фибоначчи</h2>');
+		for(i = 0, j = 1, k = 0, fib = 0; i<50; i++, fib = j + k, j = k, k = fib) {
+			document.write('<br>Febonacci (' + i + ') = ' + fib);
+		}
+		document.write('<h2>Javascript:</h2>');
+	</script>
+</body>
+</html>

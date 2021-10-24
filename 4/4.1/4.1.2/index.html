@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="" onmouseover="colorchange('yellow')" onmouseout="colorchange('#E7E7E7')">
+        <input type="text">
+        <input type="button" class="my_style" onclick="alert('ВЫ нажали кнопку 1')" value="кнопка 1">
+        <input type="button" class="my_style" onclick="alert('ВЫ нажали кнопку 2')"  value="кнопка 2">
+        <input type="button" class="my_style" onclick="alert('ВЫ нажали кнопку 3')"  value="кнопка 3">
+    </form>
+    <p>Этот текст <b onmouseover="colorch('red')" onmouseout="colorch('blue')">должен измениться</b> на красный при наведении и сини после</p>
+    <script>
+        function colorchange(color) {
+            if(event.srcElement.type == "button") {
+                event.srcElement.style.backgroundColor = color;
+            }
+            if(event.srcElement.type == "text") {
+                event.srcElement.value = "введите текст";
+            }
+        }
+
+        function colorch(color) {
+            event.srcElement.style.color = color;
+        }
+    </script>
+</body>
+</html>

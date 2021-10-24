@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form213804819" name='form213804819' role="form" method='GET' data-formactiontype="2"
+        data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_2 "
+        data-success-callback="t712_onSuccess">
+        <input type="hidden" name="formservices[]" value="3c18e24107e9002827233c6808abbf8c"
+            class="js-formaction-services">
+        <div class="js-successbox t-form__successbox t-text t-text_md" style="display:none;"></div>
+        <div class="t-form__inputsbox">
+            <div class="t-input-group t-input-group_nm" data-input-lid="1496154096760">
+                <div class="t-input-block">
+                    <input type="text" name="Name" class="t-input js-tilda-rule js-email-input" value=""
+                        placeholder="Имя" data-tilda-req="1" data-tilda-rule="name"
+                        style="color:#000000; background-color:#ffffff; ">
+                    <div class="t-input-error"></div>
+                </div>
+            </div>
+            <div class="t-input-group t-input-group_ph" data-input-lid="1496154462918">
+                <div class="t-input-block">
+                    <input type="tel" name="Phone" data-phonemask-init="no" data-phonemask-id="213804819"
+                        data-phonemask-lid="1496154462918" data-phonemask-maskcountry="RU"
+                        class="t-input js-phonemask-input js-tilda-rule " value="" placeholder="+1(999)999-9999"
+                        data-tilda-req="1" style="color:#000000; background-color:#ffffff; ">
+                    <script type="text/javascript">
+                        if (!document.getElementById('t-phonemask-script')) {
+                            (function (d, w, o) {
+                                var n = d.getElementsByTagName(o)[0], s = d.createElement(o), f = function () {
+                                    n.parentNode.insertBefore(s, n);
+                                };
+                                s.type = "text/javascript";
+                                s.async = true;
+                                s.id = 't-phonemask-script';
+                                s.src = "https://static.tildacdn.com/js/tilda-phone-mask-1.1.min.js";
+                                if (w.opera == "[object Opera]") {
+                                    d.addEventListener("DOMContentLoaded", f, false);
+                                } else {
+                                    f();
+                                }
+                            })
+                                (document, window, 'script');
+                        }
+                        else {
+                            $(document).ready(function () {
+                                if (typeof t_form_phonemask_load == 'function') {
+                                    t_form_phonemask_load($('#rec213804819 [data-phonemask-lid=1496154462918]'));
+                                }
+                            });
+                        } 
+                    </script>
+                    <div class="t-input-error"></div>
+                </div>
+            </div>
+            <div class="t-form__errorbox-middle">
+                <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                    <div class="t-form__errorbox-text t-text t-text_md">
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
+                        <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="t-form__submit">
+                <button type="submit" class="t-submit"
+                    style="color:#ffffff;background-color:#46d4db;text-transform:uppercase;box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);"
+                    data-btneffects-first="btneffects-ripple" onclick="obrabotka()">Отправить заявку</button>
+                <script>
+                    let t_submit = document.querySelector(".t-submit");
+                    t_submit.onclick = function (event) {
+                        event.preventDefault();
+                        email = document.querySelector(".js-email-input").value;
+                        phone = document.querySelector(".js-phonemask-input").value;
+                        text = "?email=" + email + "&phone=" + phone;
+                        console.log(text);
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="t-form__errorbox-bottom">
+            <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                <div class="t-form__errorbox-text t-text t-text_md">
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
+                    <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
