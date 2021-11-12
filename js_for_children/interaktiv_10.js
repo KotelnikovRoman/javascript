@@ -77,6 +77,9 @@ let click_handler = (event) => {
     console.log("x: " +event.pageX+ "; y: " +event.pageY+ ";");
 }
 
+//$("body").click(click_handler);
+
+//mousemove перемещение мышью
 /*$("html").mousemove(function(event) {
     $("#main-heading").offset({
         left: event.pageX,
@@ -85,8 +88,8 @@ let click_handler = (event) => {
 });*/
 
 //перемещение объекта с помощью мыши
-let go_obj = function(obj) {
-    $("html").mousemove(function(event) {
+let go_obj = (obj) => {
+    $("html").mousemove(function(event){
         $(obj).offset({
             left: event.pageX,
             top: event.pageY
@@ -94,31 +97,13 @@ let go_obj = function(obj) {
     });
 };
 
-//перемещение объекта с помощью клика
-let click_movement = function(obj) {
-    $("html").click(function(event) {
+//упражнения
+//перемещение с помощью клика
+let go_click = (obj) => {
+    $("html").click(function(event){
         $(obj).offset({
             left: event.pageX,
             top: event.pageY
         });
     });
 };
-
-left_x = 0;
-top_y = 0;
-
-let move_right = () => {
-    if(left_x < 200) {
-        $("#main-heading").offset({left: left_x});
-        left_x++;
-    }
-};
-
-let move_down = () => {
-    if(top_y < 200) {
-        $("#main-heading").offset({top: top_y});
-        top_y++;
-    }
-};
-
-//right, down, left, up
