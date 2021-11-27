@@ -135,4 +135,17 @@ let animation = (obj) => {
         if(y_top == 0) direction = "right";
     }
 };
-setInterval("animation('#main-heading')", 100);
+//переключение скорости
+function my_speed(obj, speed) {
+    let N = speed;
+    let animationId = setInterval("animation('" +obj+ "')", speed);
+    $(obj).click(function(){
+        speed -= 25;
+        if(speed == 0) speed = N;
+        clearInterval(animationId);
+        animationId = setInterval("animation('" +obj+ "')", speed);
+        console.log(speed);
+    });
+}
+
+my_speed("#main-heading", 100);
