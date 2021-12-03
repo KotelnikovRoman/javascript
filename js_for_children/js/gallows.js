@@ -31,7 +31,7 @@ function setupAnswerArray(word) {
 }
 
 function showPlayerProgress(arr) {
-    alert(arr.join(" "));
+    $(".main_word").text(arr.join(" "));
 }
 
 function getGuess(word) {
@@ -89,3 +89,5 @@ function game() {
     }
     showAnswerAndCongratulatePlayer(answerArray);
 }
+
+game();
