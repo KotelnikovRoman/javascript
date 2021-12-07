@@ -1,68 +1,93 @@
-//упражнения
-//перемещение с помощью клика
-let go_click = (obj) => {
-    $("html").click(function(event){
-        $(obj).offset({
-            left: event.pageX,
-            top: event.pageY
-        });
-    });
-};
+//игра виселица 1.5
+let words = [
+    'программа',
+    'марка',
+    'очки',
+    'макака',
+    'тачка',
+    'земля',
+    'змея',
+    'экватор',
+    'трактор',
+    'попугай',
+    'телевизор',
+    'работа',
+    'бутылка',
+    'магазин',
+    'столик',
+    'тетрадь'
+];
 
-//перемещение по квадрату
-//направление
-let direction = "right";
-let x_left = 0;
-let y_top = 0;
-let speed = 100;
-let animation = (obj) => {
-    //движение в право
-    if(direction == "right") {
-        x_left += 1;
-        $(obj).offset({left: x_left});
-        if(x_left == 200) direction = "bottom";
-    }
-    //движение в низ
-    if(direction == "bottom") {
-        y_top += 1;
-        $(obj).offset({top: y_top});
-        if(y_top == 200) direction = "left";
-    }
-    //движение в лево
-    if(direction == "left") {
-        x_left -= 1;
-        $(obj).offset({left: x_left});
-        if(x_left == 0) direction = "top";
-    }
-    //движение в верх
-    if(direction == "top") {
-        y_top -= 1;
-        $(obj).offset({top: y_top});
-        if(y_top == 0) direction = "right";
-    }
-};
-
-//переключение скорости
-function my_speed(obj) {
-    let speed = 11;
-    let number = 0;
-    let animationId = setInterval("animation('" +obj+ "')", speed);
-
-    $(obj).click(function(){
-        //увеличение скорости
-        if(speed > 1) {
-            speed -= 1;
-            number += 1;
-            clearInterval(animationId);
-            animationId = setInterval("animation('" +obj+ "')", speed);
-            $(obj).text("Количество попаданий " +number);
-        }
-        //победа
-        if(speed == 1) {
-            clearInterval(animationId);
-            $(obj).text("Ура победа");
-        }
-    });
+function pickWord(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
 
-my_speed("#main-heading");
+function setupAnswerArray(word) {
+    let arr = [];
+    for(i = 0; i < word.length; i++) {
+        arr.push("_");
+    }
+    return arr;
+}
+
+function showPlayerProgress(arr) {
+    $(".main_word").text(arr.join(" "));
+}
+
+function getGuess(word) {
+    let letter = prompt("Введите букву или нажмите отмена для выхода из игры");
+    if(word.indexOf(letter) == -1) {
+        attempt++;
+    }
+    return letter;
+}
+
+function updateGameState(letter, word, arr) {
+    let N = 0;
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === letter) {
+            if(word[i] != arr[i]) {
+                arr[i] = letter;
+                N++;
+            }
+            else {
+                alert("вы уже вводили эту букву");
+            }
+        }
+    }
+    return N;
+}
+
+function showAnswerAndCongratulatePlayer(arr) {
+    alert(arr.join(" "));
+    let text = "";
+    remainingLetters == 0 ? text += "Поздравляю вы выйграли\n" : text += "Вы проиграли\n";
+    text += "Было данно 7 попыток\n";
+    text += "Вам понадобилось " + attempt + "\n";
+    text += "Это было слово " + word;
+    alert(text);
+}
+
+function game() {
+    word = pickWord(words);
+    answerArray = setupAnswerArray(word);
+    remainingLetters = word.length;
+    attempt = 0;
+    while(remainingLetters > 0 && attempt < 7) {
+        showPlayerProgress(answerArray);
+        let quess = getGuess(word).toLowerCase();
+        if(quess === null) {
+            break;
+        }
+        else if(quess.length !== 1) {
+            alert("Введите только 1 букву");
+        }
+        else {
+            let correctGuesses = updateGameState(quess, word, answerArray);
+            remainingLetters -= correctGuesses;
+        }
+    }
+    showAnswerAndCongratulatePlayer(answerArray);
+}
+
+game();
