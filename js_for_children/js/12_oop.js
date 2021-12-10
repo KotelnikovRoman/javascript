@@ -47,15 +47,17 @@ pig.speak();
 horse.speak();
 
 //создание объектов с помощью конструктора
-let Car = function(x, y, url) {
+let Car = function(x, y, speed, url) {
     this.x = x,
     this.y = y,
     this.url = url,
-    this.width = "100px"
+    this.width = "100px",
+    this.speed = speed;
+    /*автомотически запускает метод
+    при создании объекта
+    */
+    this.draw()
 };
-
-let tesla = new Car(10, 20, "https://telegra.ph/file/2b51d404ca05470ae875b.png");
-let nisan = new Car(100, 250, "https://www.supercars.net/blog/wp-content/uploads/2016/02/Screenshot-2016-02-02-08.29.09-1.png");
 
 varDraw = function(car) {
     carHtml = '<img src="' +car.url+ '" alt="tesla">';
@@ -84,30 +86,69 @@ Car.prototype.draw = function() {
     $("body").append(this.carElement);
 };
 
-Car.prototype.moveRight = function() {
-    this.x += 5;
+//движение в право
+Car.prototype.moveRight = function(speed) {
+    this.x += speed;
     this.carElement.css({
         left: this.x,
         top: this.y
     });
 };
 
-Car.prototype.play = function() {
-    if(this.x < 100) {
-        this.moveRight();
-    }
-    else {
-        clearInterval(play);
-    }
+//движение в лево
+Car.prototype.moveLeft = function(speed) {
+    this.x -= speed;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    });
+};
+
+//движение в верх
+Car.prototype.moveUp = function(speed) {
+    this.y += speed;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    });
+};
+
+//движение в низ
+Car.prototype.moveDown = function(speed) {
+    this.y -= speed;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    });
+};
+
+//кол-во сдвигов
+let play_N = 0;
+
+//движение
+Car.prototype.play = function(obj, speed) {
+    //двигаться до правого края
+    //вычитаем размер объекта 
+    //чтобы не зайти за край
+    this.x < window.innerWidth - Math.floor(parseInt(this.width)) ? this.moveRight(speed) : clearInterval(obj);
+    play_N++;
+    console.log(play_N);
 }
 
 /**
  * при использовании varDraw 
  * не работает moveRight()
- * 
  */
 //varDraw(tesla);
+
+
+let tesla = new Car(10, 20, 5, "https://telegra.ph/file/2b51d404ca05470ae875b.png");
+let nisan = new Car(100, 250, 15, "https://www.supercars.net/blog/wp-content/uploads/2016/02/Screenshot-2016-02-02-08.29.09-1.png");
+
+/*
 tesla.draw();
 nisan.draw();
+*/
 
-play = setInterval("tesla.play()", 30);
+play_tesla = setInterval("tesla.play(play_tesla, 10)", 30);
+play_nisan = setInterval("nisan.play(play_nisan, 30)", 70);
