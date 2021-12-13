@@ -2,3 +2,7 @@
 #map {
     width: 800px;
 }
+
+canvas {
+    border: 1px solid black;
+}

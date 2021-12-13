@@ -150,5 +150,5 @@ tesla.draw();
 nisan.draw();
 */
 
-play_tesla = setInterval("tesla.play(play_tesla, 10)", 30);
-play_nisan = setInterval("nisan.play(play_nisan, 30)", 70);
+play_tesla = setInterval("tesla.play(play_tesla, tesla.speed)", 30);
+play_nisan = setInterval("nisan.play(play_nisan, nisan.speed)", 70);
