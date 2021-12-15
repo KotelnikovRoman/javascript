@@ -143,4 +143,37 @@ let man = (width, height) => {
     ctx.stroke();
 };
 
-man(200, 200);
+let house = () => {
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.moveTo(100, 100);
+    ctx.lineTo(100, 60);
+    ctx.lineTo(130, 30);
+    ctx.lineTo(160, 60);
+    ctx.lineTo(160, 100);
+    ctx.lineTo(100, 100);
+    ctx.fill();
+};
+
+let krug = function() {
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "orange";
+
+    ctx.beginPath();
+    ctx.arc(50, 50, 20, 0, Math.PI / 2, false);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(20, 50, 20, 0,  Math.PI / 2, true);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(100, 50, 20, 0, Math.PI, false);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(150, 50, 20, 0, Math.PI * 2, false);
+    ctx.stroke();
+};
+
+krug();
