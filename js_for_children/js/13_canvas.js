@@ -155,18 +155,22 @@ let house = () => {
     ctx.fill();
 };
 
-let krug = function() {
+//рисует с справо на лево
+let circle = function() {
     ctx.lineWidth = 3;
     ctx.strokeStyle = "orange";
 
+    //false рисует по часовой стрелки
     ctx.beginPath();
     ctx.arc(50, 50, 20, 0, Math.PI / 2, false);
     ctx.stroke();
 
+    //true рисует против часовой стрелки
     ctx.beginPath();
     ctx.arc(20, 50, 20, 0,  Math.PI / 2, true);
     ctx.stroke();
 
+    
     ctx.beginPath();
     ctx.arc(100, 50, 20, 0, Math.PI, false);
     ctx.stroke();
@@ -174,6 +178,46 @@ let krug = function() {
     ctx.beginPath();
     ctx.arc(150, 50, 20, 0, Math.PI * 2, false);
     ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(100, 30, 10, Math.PI, Math.PI / 2, true);
+    ctx.stroke();
 };
 
-krug();
+let circle2 = (x, y, r, n, c, b) => {
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = c;
+
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, n, b);
+    ctx.stroke();
+};
+
+let circle3 = (x, y, r, n1, n2, c, b) => {
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = c;
+
+    ctx.beginPath();
+    ctx.arc(x, y, r, n1, n2, b);
+    ctx.stroke();
+};
+
+let circle4 = (x, y, r) => {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2, true);
+    ctx.stroke();
+};
+
+ctx.lineWidth = 4;
+ctx.strokeStyle = "#37474f";
+circle4(100, 100, 10);
+ctx.strokeStyle = "#bdbdbd";
+circle4(100, 100, 20);
+ctx.strokeStyle = "#4e342e";
+circle4(100, 100, 30);
+ctx.strokeStyle = "#ff6e40";
+circle4(100, 100, 40);
+ctx.strokeStyle = "#ffd180";
+circle4(100, 100, 50);
+ctx.strokeStyle = "#ff6f00";
+circle4(100, 100, 60);

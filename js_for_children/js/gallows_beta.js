@@ -18,11 +18,9 @@ let words = [
     'тетрадь'
 ];
 
-/*
 let form = document.getElementById("main_form");
 let letter = document.getElementById("main_guess");
 let my_word = document.getElementById("main_word");
-*/
 
 function pickWord(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -37,12 +35,14 @@ function setupAnswerArray(word) {
 }
 
 function showPlayerProgress(arr) {
-    $(".main_word").text(arr.join(" "));
+    $("#main_word").text(arr.join(" "));
 }
 
+
 function getGuess(word) {
-    let letter = prompt("Введите букву или нажмите отмена для выхода из игры");
-    if(word.indexOf(letter) == -1) {
+    //let letter = prompt("Введите букву или нажмите отмена для выхода из игры");
+    //letter = letter.value;
+    if(word.indexOf(letter.value) == -1) {
         attempt++;
     }
     return letter;
