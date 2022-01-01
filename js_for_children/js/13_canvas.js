@@ -209,6 +209,7 @@ let circle4 = (x, y, r) => {
 };
 
 ctx.lineWidth = 4;
+/*
 ctx.strokeStyle = "#37474f";
 circle4(100, 100, 10);
 ctx.strokeStyle = "#bdbdbd";
@@ -221,3 +222,73 @@ ctx.strokeStyle = "#ffd180";
 circle4(100, 100, 50);
 ctx.strokeStyle = "#ff6f00";
 circle4(100, 100, 60);
+*/
+
+let circle5 = (x, y, r, c, b) => {
+    if (b === true) ctx.fillStyle = c;
+    else ctx.strokeStyle = c;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2, true);
+    if(b === true) ctx.fill();
+    else ctx.stroke();
+}
+
+/*
+ctx.strokeStyle = "black";
+circle4(100, 50, 20);
+circle5(93, 48, 3, "black", true);
+circle5(107, 48, 3, "black", true);
+circle5(100, 55, 3, "orange", true);
+circle4(100, 110, 40);
+circle5(100, 90, 4, "black", true);
+circle5(100, 110, 4, "black", true);
+circle5(100, 130, 4, "black", true);
+*/
+
+let drawSnowman = (x, y) => {
+    head = 15;
+    body = 25;
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "black";
+
+    ctx.beginPath();
+    ctx.arc(x, y, head, 0, Math.PI * 2, true);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(x, y + 40, body, 0, Math.PI * 2, true);
+    ctx.stroke();
+
+    glas = 3;
+    ctx.fillStyle = "black";
+
+    ctx.beginPath();
+    ctx.arc(x - 8, y, glas, 0, Math.PI * 2, true);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(x + 8, y, glas, 0, Math.PI * 2, true);
+    ctx.fill();
+
+    ctx.fillStyle = "orange";
+
+    ctx.beginPath();
+    ctx.arc(x, y + 7, glas, 0, Math.PI * 2, true);
+    ctx.fill();
+
+    ctx.fillStyle = "black";
+
+    ctx.beginPath();
+    ctx.arc(x, y + 30, glas, 0, Math.PI * 2, true);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(x, y + 40, glas, 0, Math.PI * 2, true);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(x, y + 50, glas, 0, Math.PI * 2, true);
+    ctx.fill();
+};
+
+drawSnowman(50, 50);
