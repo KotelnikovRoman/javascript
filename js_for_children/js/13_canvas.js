@@ -117,6 +117,7 @@ let cross = () => {
     ctx.stroke();
 };
 
+
 let man = (width, height) => {
     let center_x = width / 2;
     let center_y = height / 2;
@@ -291,4 +292,41 @@ let drawSnowman = (x, y) => {
     ctx.fill();
 };
 
-drawSnowman(50, 50);
+let drawPoints = (arr) => {
+    ctx.beginPath();
+    for (item of arr) {
+        ctx.lineTo(item[0], item[1]);
+    }
+    ctx.stroke();
+};
+
+
+let points = [[50, 50], [50, 100], [100, 100], [100, 50], [50, 50]];
+let mysteryPoints = [[50, 50], [50, 100], [25, 120], [100, 50], [70, 90], [100, 90], [70, 120]];
+//drawPoints(mysteryPoints);
+
+//1 ================
+/*
+for (let i = 0; i < points.length; i++) {
+    console.log(points[i][0]+ " " +points[i][1]);
+}
+*/
+
+//2 =================
+//доступ к ключу
+/*
+for (let key in points) {
+    console.log(key);
+}
+//доступ к значению
+for (let key in points) {
+    console.log(points[key][0]+ " " +points[key][1]);
+}
+*/
+
+//3 ==================
+/*
+for (let item of points) {
+    console.log(item[0]+ " " +item[1]);
+}
+*/
