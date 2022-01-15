@@ -342,6 +342,19 @@ pointing = (obj) => {
         ctx.moveTo(x, y)
         ctx.lineTo(x + 1, y + 1);
         ctx.stroke();
-        console.log(x, y);
     });
 };
+//pointing("canvas");
+
+let pointing2 = (obj) => {
+    ctx.fillStyle = "black";
+    ctx.lineWidth = 1;
+    $("html").mousemove(function(event) {
+        x = event.clientX;
+        y = event.clientY;
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2, true);
+        ctx.fill();
+    });
+};
+//pointing2("canvas");

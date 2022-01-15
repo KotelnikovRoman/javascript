@@ -31,7 +31,7 @@ function setupAnswerArray(word) {
 }
 
 function showPlayerProgress(arr) {
-    $(".main_word").text(arr.join(" "));
+    alert(arr.join(" "));
 }
 
 function getGuess(word) {

@@ -18,74 +18,42 @@ let words = [
     'тетрадь'
 ];
 
+//выбор случайного слова
 function pickWord(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
+//шифровка слова
 function setupAnswerArray(word) {
     let arr = [];
-    for(i = 0; i < word.length; i++) {
+    for (let item of word) {
         arr.push("_");
     }
     return arr;
 }
 
+//разделитель между буквами
 function showPlayerProgress(arr) {
-    alert(arr.join(" "));
+    return arr.join(" ");
 }
 
-function getGuess(word) {
-    let letter = prompt("Введите букву или нажмите отмена для выхода из игры");
-    if(word.indexOf(letter) == -1) {
+let secret_word = $(".main_word");
+let form = document.forms.main_form;
+let elem = form.elements.main_quess;
+elem.value = "Hi";
+
+/*function getGuess(word) {
+    if (word.indexOf(main_quess.value) == -1) {
         attempt++;
     }
-    return letter;
-}
-
-function updateGameState(letter, word, arr) {
-    let N = 0;
-    for(let i = 0; i < word.length; i++) {
-        if(word[i] === letter) {
-            if(word[i] != arr[i]) {
-                arr[i] = letter;
-                N++;
-            }
-            else {
-                alert("вы уже вводили эту букву");
-            }
-        }
-    }
-    return N;
-}
-
-function showAnswerAndCongratulatePlayer(arr) {
-    alert(arr.join(" "));
-    let text = "";
-    remainingLetters == 0 ? text += "Поздравляю вы выйграли\n" : text += "Вы проиграли\n";
-    text += "Было данно 7 попыток\n";
-    text += "Вам понадобилось " + attempt + "\n";
-    text += "Это было слово " + word;
-    alert(text);
-}
+    alert(main_quess.value);
+}*/
 
 function game() {
     word = pickWord(words);
     answerArray = setupAnswerArray(word);
     remainingLetters = word.length;
     attempt = 0;
-    while(remainingLetters > 0 && attempt < 7) {
-        showPlayerProgress(answerArray);
-        let quess = getGuess(word).toLowerCase();
-        if(quess === null) {
-            break;
-        }
-        else if(quess.length !== 1) {
-            alert("Введите только 1 букву");
-        }
-        else {
-            let correctGuesses = updateGameState(quess, word, answerArray);
-            remainingLetters -= correctGuesses;
-        }
-    }
-    showAnswerAndCongratulatePlayer(answerArray);
 }
+
+game();

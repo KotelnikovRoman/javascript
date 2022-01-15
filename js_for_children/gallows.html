@@ -9,14 +9,18 @@
 <body>
     <h1 class="main_title">Виселица:</h1>
     <h2 id="main_subtitle">угадай слово пока тебя не повесили</h2>
-    <form action="#" id="main_form">
+    <p class="main_word"></p>
+    <form action="#" id="main_form" name="main_form">
         <fieldset>
-            <legend>выбор буквы</legend>            <label for="main_guess">Введите букву или нажмите отправить (не вводя ничиго) для выхода из игры</label>
-            <input type="text" id="main_guess">
+            <legend>выбор буквы</legend>
+            <label for="main_guess">
+                Введите букву или нажмите отправить (не вводя ничиго) для выхода из игры
+            </label>
+            <input type="text" name="main_guess" value="music">
         </fieldset>
         <p><input type="submit"></p>
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="js/gallows_beta.js"></script>
+    <script src="js/game-1_gallows.js"></script>
 </body>
 </html>

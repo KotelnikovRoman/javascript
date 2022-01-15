@@ -1,22 +1,20 @@
-let x = 0;
-let y = 0;
-let canvas = document.getElementById("canvas");
-canvas.style.background = "yellow";
-let ctx = canvas.getContext("2d");
+document.querySelector(".b-1").addEventListener('click', ()=> {
+    
+    /*
+    let data = document.querySelector('.i-1').value;
+    document.querySelector('.block-1').innerHTML += " " +data;
+    */
 
-pointing = (obj) => {
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-    $("html").mousemove(function(event) {
-        //$(obj).offset({});
-        x = event.clientX;
-        y = event.clientY;
-        ctx.beginPath();
-        ctx.moveTo(x, y)
-        ctx.lineTo(x + 1, y + 1);
-        ctx.stroke();
-        console.log(x, y);
-    });
-};
+    document.querySelector('.i-1').value = 'Hi world';
+});
 
-pointing("canvas");
+document.querySelector('.b-2').addEventListener('click', ()=> {
+    let value_data = document.querySelector('.i-2').value; // '4'
+    let number_data = +document.querySelector('.i-2').value; // 4
+    document.querySelector('.block-2').innerHTML = typeof number_data;
+});
+
+document.querySelector('.b-3').onclick = ()=> {
+    let color = document.querySelector('.i-3').value;
+    document.querySelector('.block-3').innerHTML = color;
+}
